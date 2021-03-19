@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+
+
+option java_package = "com.proto.key";
+option java_multiple_files = true;
+//option java_package = "com.grpc.wall";
+//option java_outer_classname = "KeyProto";
+//option objc_class_prefix = "HLW";
+package master;
+//option java_multiple_files = true;
+
+message Key {
+  string key = 1;
+}
+
+message Key_Value {
+  string key = 1;
+  string value = 2;
+}
+
+message Value {
+  string value = 1;
+}
+message PutResponse {
+  string res = 1;
+}
+
+message ListKeys {
+  string key = 1;
+}
+
+message Empty {}
+
+service KeyService {
+  rpc put(Key_Value) returns (PutResponse) {};
+  rpc get(Key) returns (Value) {}; // return NOT_FOUND if not found
+  rpc getAllKeys(Empty) returns (stream ListKeys) {};
+}
