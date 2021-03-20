@@ -17,6 +17,14 @@ public class ClientGrpc {
         }
 
         private void run(Runnable runnable){
+            System.out.println("++++++ Client running ++++++\n");
+            System.out.println("******** Commands *******\n\n");
+            System.out.println("put [key] [value]\n");
+            System.out.println("get [key]\n");
+            System.out.println("list \n");
+            System.out.println("quit \n");
+            System.out.println("INSERT COMMAND: \n\n\n");
+
             ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051)
                     .usePlaintext()
                     .build();
@@ -32,7 +40,8 @@ public class ClientGrpc {
                 switch (command) {
                     case "put":
                         // CREATE KEY
-                        System.out.println("Criando key");
+                        System.out.println("\n-------- put command -------");
+                        System.out.println("********             *******\n");
                         PutResponse createUserResponse = clientGrpc.put(
                                 Key_Value.newBuilder()
                                         .setKey(splitCommand[2])
@@ -43,7 +52,8 @@ public class ClientGrpc {
                         break;
                     case "get":
                         // GET KEY
-                        System.out.println("Get key");
+                        System.out.println("\n-------- Get Command -------");
+                        System.out.println("********             *******\n");
                         Value getKeyResponse = clientGrpc.get(
                                 Key.newBuilder().setKey(splitCommand[1]).build()
                         );
@@ -51,7 +61,8 @@ public class ClientGrpc {
                         break;
                     case "list":
                         // LIST USERS
-                        System.out.println("list key");
+                        System.out.println("\n-------- list key -------");
+                        System.out.println("********          *******\n");
                         clientGrpc.getAllKeys(Empty.newBuilder().build()).forEachRemaining(
                                 listKeyResponse -> System.out.println("Key: " + listKeyResponse.getKey())
                         );
