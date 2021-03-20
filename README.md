@@ -68,7 +68,3 @@ The console going to show the result
 :get [key] - get a keyValue exemple: "get 13"
 :list - list all keys
 ```
-
-## License
-
-This project is under the MIT license. See the file [LICENSE](LICENSE) for more details.
