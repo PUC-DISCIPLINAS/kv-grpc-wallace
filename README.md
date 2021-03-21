@@ -36,7 +36,7 @@ $ cd kv-grpc-wallace/
 
 Windows:
 
-`run server`
+`start server`
 
 Linux:
 
@@ -53,7 +53,7 @@ $ cd kv-grpc-wallace/
 
 Windows:
 
-`run client`
+`start client`
 
 Linux:
 
