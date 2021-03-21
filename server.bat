@@ -1,2 +1,2 @@
-@echo
-run /build/install/grpctrab/bin/grpc-server
+@echo off
+cd build\install\grpctrab\bin\  && grpc-server
